@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  Build-Linux:
+    name: Build on Linux
+    runs-on: ubuntu-latest
+    steps:
+      #1安装Qt
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: '6.2.4'
+          host: 'linux'
+          arch: 'gcc_64'
+          target: 'desktop'
+      #2拉取代码
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      #3编译构建
+      - name: Build
+        run: |
+          git clone https://github.com/colutius/libcolutius.git
+          mkdir build
+          cd build
+          cmake ..
+          make
+      #5上传artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: libcolutius
+          path: /home/runner/work/colutius-desktop/colutius-desktop/build
+          if-no-files-found: error
