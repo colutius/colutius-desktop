@@ -34,6 +34,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: libcolutius
+          name: colutius-desktop
           path: /home/runner/work/colutius-desktop/colutius-desktop/build
           if-no-files-found: error
