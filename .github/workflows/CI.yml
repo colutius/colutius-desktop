@@ -25,7 +25,6 @@ jobs:
       #3编译构建
       - name: Build
         run: |
-          git clone https://github.com/colutius/libcolutius.git
           mkdir build
           cd build
           cmake ..

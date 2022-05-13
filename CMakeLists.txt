@@ -7,9 +7,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 #设置头文件路径
 include_directories(
-        ${PROJECT_SOURCE_DIR}/libcolutius/src/Message
-        ${PROJECT_SOURCE_DIR}/libcolutius/src/Channel
-        ${PROJECT_SOURCE_DIR}/libcolutius/src/Server
+        ${PROJECT_SOURCE_DIR}/lib/libcolutius/src/Message
+        ${PROJECT_SOURCE_DIR}/lib/libcolutius/src/Channel
+        ${PROJECT_SOURCE_DIR}/lib/libcolutius/src/Server
 )
 set(QT_VERSION 6)
 set(REQUIRED_LIBS Core Gui Widgets Network)
@@ -23,7 +23,7 @@ set(REQUIRED_LIBS_QUALIFIED
         colutius-channel
         colutius-message
         )
-add_subdirectory(libcolutius)
+add_subdirectory(lib/libcolutius)
 add_executable(${PROJECT_NAME}
         src/main.cpp
         src/ui/widget.cpp

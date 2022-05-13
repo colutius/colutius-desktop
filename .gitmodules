@@ -1,0 +1,3 @@
+[submodule "lib/libcolutius"]
+	path = lib/libcolutius
+	url = git@github.com:colutius/libcolutius.git
