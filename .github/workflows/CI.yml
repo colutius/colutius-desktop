@@ -9,7 +9,7 @@ jobs:
     name: Build on Linux
     runs-on: ubuntu-latest
     steps:
-      #1安装Qt
+      # 安装Qt
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -17,19 +17,22 @@ jobs:
           host: 'linux'
           arch: 'gcc_64'
           target: 'desktop'
-      #2拉取代码
+      # 拉取代码
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 1
-      #3编译构建
+      # 拉取子仓库
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+      # 编译构建
       - name: Build
         run: |
           mkdir build
           cd build
           cmake ..
           make
-      #5上传artifact
+      # 上传artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
