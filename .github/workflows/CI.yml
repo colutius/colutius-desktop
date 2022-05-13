@@ -19,12 +19,10 @@ jobs:
           target: 'desktop'
       # 拉取代码
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      # 拉取子仓库
-      - name: Checkout submodules
-        run: git submodule update --init --recursive
+          submodules: 'recursive'
       # 编译构建
       - name: Build
         run: |
