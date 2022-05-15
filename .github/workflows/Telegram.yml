@@ -1,0 +1,19 @@
+name: telegram message
+on: [ push ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            ${{ github.actor }} 提交了新的 commit:
+            提交信息: ${{ github.event.commits[0].message }}
+
+            仓库: ${{ github.repository }}
+
+            查看更改: https://github.com/${{ github.repository }}/commit/${{github.sha}}
