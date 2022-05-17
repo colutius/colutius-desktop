@@ -5,14 +5,15 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      # 获取一言
       - name: get yiyan
         run: |
-          echo "YIYAN=$(curl https://v1.hitokoto.cn | jq -r .hitokoto)" >> $GITHUB_ENV
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
+          echo "YIYAN=$(curl 'https://v1.hitokoto.cn?c=a&c=d&c=i&c=j&c=k' | jq -r .hitokoto)" >> $GITHUB_ENV
+      # 发送到Telegram
+      - uses: colutius/Telegram-Msg@main
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          chatid: ${{ secrets.TELEGRAM_TO }}
           message: |
             👇新的提交👇
 
@@ -21,7 +22,5 @@ jobs:
             📄提交信息: ${{ github.event.commits[0].message }}
 
             📦仓库: ${{ github.repository }}
-
-            👀查看更改: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
             🗓每日一言: ${{ env.YIYAN }}

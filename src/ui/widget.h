@@ -1,9 +1,4 @@
-//
-// Created by hgy on 2022/5/10.
-//
-
-#ifndef COLUTIUS_DESKTOP_WIDGET_H
-#define COLUTIUS_DESKTOP_WIDGET_H
+#pragma once
 
 #include <QWidget>
 
@@ -23,5 +18,3 @@ public:
 private:
   Ui::Widget *ui;
 };
-
-#endif // COLUTIUS_DESKTOP_WIDGET_H

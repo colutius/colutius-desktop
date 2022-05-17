@@ -1,5 +1,5 @@
 #include "ui/widget.h"
-#include <Message.h>
+#include <libcolutius/Message.h>
 #include <QApplication>
 
 int main(int argc, char *argv[])
