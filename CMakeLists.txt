@@ -1,17 +1,10 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.19)
 project(colutius-desktop)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
-#复制头文件
-file(GLOB LIBCOLUTIUSINCLUDE ${PROJECT_SOURCE_DIR}/lib/libcolutius/src/*.h)
-file(COPY ${LIBCOLUTIUSINCLUDE} DESTINATION ${PROJECT_SOURCE_DIR}/include/libcolutius)
-#设置头文件路径
-include_directories(
-        ${PROJECT_SOURCE_DIR}/include
-)
 set(QT_VERSION 6)
 set(REQUIRED_LIBS Core Gui Widgets Network)
 set(REQUIRED_LIBS_QUALIFIED
@@ -22,13 +15,31 @@ set(REQUIRED_LIBS_QUALIFIED
 
         colutius
         )
+#复制共享库头文件
+file(GLOB LIBCOLUTIUSINCLUDE ${PROJECT_SOURCE_DIR}/lib/libcolutius/src/*.h)
+file(COPY ${LIBCOLUTIUSINCLUDE} DESTINATION ${PROJECT_SOURCE_DIR}/include/libcolutius)
+#添加子目录
 add_subdirectory(lib/libcolutius)
-
+#设置头文件路径
+include_directories(
+        ${PROJECT_SOURCE_DIR}/include
+)
+#获取ui头文件
+file(GLOB UserInterface ${PROJECT_SOURCE_DIR}/include/ui/*.h)
 add_executable(${PROJECT_NAME}
         src/main.cpp
-        src/ui/widget.cpp
-        src/ui/widget.h
-        src/ui/widget.ui
+        #不加容易出问题
+        ${UserInterface}
+        #ui类
+        src/UserInterface/widget.cpp
+        src/UserInterface/widget.ui
+        src/UserInterface/login.cpp
+        src/UserInterface/login.ui
+        src/UserInterface/config.cpp
+        src/UserInterface/config.ui
+        src/UserInterface/systemtrayicon.cpp
+        #qrc
+        resource/resource.qrc
         )
 
 find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS} REQUIRED)
