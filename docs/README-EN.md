@@ -11,14 +11,6 @@
 [![Download](https://img.shields.io/github/downloads/colutius/colutius-desktop/total)](https://github.com/colutius/colutius-desktop/releases)
 [![Stars](https://img.shields.io/github/stars/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop)
 
-[![CI](https://github.com/colutius/colutius-desktop/actions/workflows/CI.yml/badge.svg)](https://github.com/colutius/colutius-desktop/actions/workflows/CI.yml)
-[![Backup](https://github.com/colutius/colutius-desktop/actions/workflows/Backup.yml/badge.svg)](https://github.com/colutius/colutius-desktop/actions/workflows/Backup.yml)
-
-[![License](https://img.shields.io/github/license/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop/blob/master/LICENSE)
-[![Release](https://img.shields.io/github/v/release/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop/releases)
-[![Download](https://img.shields.io/github/downloads/colutius/colutius-desktop/total)](https://github.com/colutius/colutius-desktop/releases)
-[![Stars](https://img.shields.io/github/stars/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop)
-
 ### Welcome to the
 
 ```c++
