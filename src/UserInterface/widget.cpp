@@ -1,6 +1,6 @@
 #include "ui_widget.h"
+#include <core/notifymanager.h>
 #include <ui/widget.h>
-
 Widget::Widget(QWidget *parent) : QWidget(parent), ui(new Ui::Widget)
 {
     ui->setupUi(this);

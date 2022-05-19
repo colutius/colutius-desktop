@@ -1,8 +1,12 @@
 #pragma once
 
+#include <QFile>
 #include <QObject>
+#include <QTextStream>
+#include <QTime>
 
 class Log : public QObject
 {
-    explicit Log(QObject *parent = nullptr);
+  public:
+    static void customMessageHandler(QtMsgType type, const QMessageLogContext &msg, const QString &string);
 };
