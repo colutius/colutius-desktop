@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.18)
 project(colutius-desktop)
+#设置动态库输出位置
+set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/libs)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)

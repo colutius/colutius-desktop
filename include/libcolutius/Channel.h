@@ -18,6 +18,8 @@ class Channel : public Session
 {
     Q_OBJECT
   public:
-    explicit Channel(Session *parent = nullptr);
+    explicit Channel(QString name, Session *parent = nullptr);
     ~Channel() override;
+
+    QString getType();
 };
