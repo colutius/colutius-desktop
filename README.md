@@ -3,6 +3,14 @@
 
 [[English](docs/README-EN.md/#colutius)]
 
+[![CI](https://github.com/colutius/colutius-desktop/actions/workflows/CI.yml/badge.svg)](https://github.com/colutius/colutius-desktop/actions/workflows/CI.yml)
+[![Backup](https://github.com/colutius/colutius-desktop/actions/workflows/Backup.yml/badge.svg)](https://github.com/colutius/colutius-desktop/actions/workflows/Backup.yml)
+
+[![License](https://img.shields.io/github/license/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop/blob/master/LICENSE)
+[![Release](https://img.shields.io/github/v/release/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop/releases)
+[![Download](https://img.shields.io/github/downloads/colutius/colutius-desktop/total)](https://github.com/colutius/colutius-desktop/releases)
+[![Stars](https://img.shields.io/github/stars/colutius/colutius-desktop)](https://github.com/colutius/colutius-desktop)
+
 ### 欢迎使用
 
 ```c++
@@ -18,23 +26,14 @@
 
 ### 一个跨平台，易用，美观的IRC客户端
 
-## 自动化构建状态
-
-|[Linux][linux-link]|[Windows][windows-link]|[MacOS][macos-link]|[备份][backup-link]|
-|-------------------|-----------------------|-------------------|-------------------|
-|![linux-badge] |![windows-badge] |![macos-badge] |![backup-badge] |
-
-|[License][license-link]| [Release][release-link]| [Download][download-link] | [Stars][stars-link] |
-|-------------------|-----------------------|-------------------|------------|
-|![license-badge] |![release-badge] |![download-badge] |![stars-badge] |
 ## 软件截图
 ![](asset/img/1.png)
 
 ## 手动构建
 - 克隆仓库
 ```bash
-git clone https://github.com/colutius/colutius.git
-cd colutius
+git clone --recursive https://github.com/colutius/colutius-desktop.git
+cd colutius-desktop
 ```
 - 开始构建
 ```bash
@@ -45,28 +44,5 @@ make
 ```
 - 运行软件
 ```bash
-./colutius
+./colutius-desktop
 ```
-
-[windows-link]: https://github.com/colutius/colutius/actions/workflows/Windows.yml
-[windows-badge]: https://github.com/colutius/colutius/actions/workflows/Windows.yml/badge.svg
-
-[linux-link]: https://github.com/colutius/colutius/actions/workflows/Linux.yml
-[linux-badge]: https://github.com/colutius/colutius/actions/workflows/Linux.yml/badge.svg
-
-[macos-link]: https://github.com/colutius/colutius/actions/workflows/MacOS.yml
-[macos-badge]: https://github.com/colutius/colutius/actions/workflows/MacOS.yml/badge.svg
-
-[backup-link]: https://github.com/colutius/colutius/actions/workflows/backup.yml
-[backup-badge]: https://github.com/colutius/colutius/actions/workflows/backup.yml/badge.svg
-
-[release-link]: https://github.com/colutius/colutius/releases
-[release-badge]: https://img.shields.io/github/v/release/colutius/colutius
-
-[license-link]: https://github.com/colutius/colutius/blob/master/LICENSE
-[license-badge]: https://img.shields.io/github/license/colutius/colutius
-
-[download-link]: https://github.com/colutius/colutius/releases
-[download-badge]: https://img.shields.io/github/downloads/colutius/colutius/total
-[stars-link]: https://github.com/colutius/colutius
-[stars-badge]: https://img.shields.io/github/stars/colutius/colutius
