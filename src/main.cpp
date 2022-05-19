@@ -1,6 +1,6 @@
-#include <ui/widget.h>
 #include <QApplication>
 #include <ui/systemtrayicon.h>
+#include <ui/widget.h>
 
 int main(int argc, char *argv[])
 {
