@@ -28,11 +28,11 @@ include_directories(
 )
 #获取ui头文件
 file(GLOB UserInterface ${PROJECT_SOURCE_DIR}/include/ui/*.h)
+file(GLOB ColutiusCore ${PROJECT_SOURCE_DIR}/include/core/*.h)
 add_executable(${PROJECT_NAME}
         src/main.cpp
-        #不加容易出问题
-        ${UserInterface}
         #ui类
+        ${UserInterface}
         src/UserInterface/widget.cpp
         src/UserInterface/widget.ui
         src/UserInterface/login.cpp
@@ -40,7 +40,11 @@ add_executable(${PROJECT_NAME}
         src/UserInterface/config.cpp
         src/UserInterface/config.ui
         src/UserInterface/systemtrayicon.cpp
-        #qrc
+        #core类
+        ${ColutiusCore}
+        src/ColutiusCore/log.cpp
+        src/ColutiusCore/storage.cpp
+        #qrc文件
         resource/resource.qrc
         )
 
