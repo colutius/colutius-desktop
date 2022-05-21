@@ -46,6 +46,7 @@ add_executable(${PROJECT_NAME}
         src/ColutiusCore/storage.cpp
         src/ColutiusCore/notifymanager.cpp
         src/ColutiusCore/notify.cpp
+        src/ColutiusCore/client.cpp
         #qrc文件
         resource/resource.qrc
         )
