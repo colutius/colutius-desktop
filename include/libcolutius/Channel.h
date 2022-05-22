@@ -22,4 +22,5 @@ class Channel : public Session
     ~Channel() override;
 
     QString getType();
+    void quit();
 };

@@ -26,7 +26,7 @@ class Server : public QObject
 {
     Q_OBJECT
   signals:
-    void loginSuccess();                   ///<服务器连接成功
+    void loginSuccess(Server *server);     ///<服务器连接成功
     void loginFail();                      ///<服务器连接失败
     void disconnected();                   ///<服务器断开连接
     void networkError();                   ///<网络未连接
@@ -75,6 +75,7 @@ class Server : public QObject
   private slots:
     void _checkNetWork(const QHostInfo &host); //检查网络连接情况
     void _addSessionCallBack(QString name);    //添加会话回调
+    void _deleteSession(QString name);
 
   private:
     void _sendData(const QString &data); //向服务器发送数据

@@ -19,7 +19,8 @@ class Session : public QObject
 {
     Q_OBJECT
   signals:
-    void newMsg(); ///<新消息
+    void newMsg();            ///<新消息
+    void _quit(QString name); ///<退出频道
   public:
     explicit Session(QString name, QObject *parent = nullptr);
     ~Session() override;
@@ -30,6 +31,8 @@ class Session : public QObject
     QList<Message *> getMessageList(); //获取消息列表
     Message *getMessage(int index);    //获取指定消息实例
     int getMessageNum();               //获取消息数量
+    void quit();
+
   protected:
     QList<Message *> _messageList; //消息列表
     QString _name;                 //会话名称

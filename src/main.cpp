@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <core/log.h>
-#include <libcolutius/Server.h>
 #include <ui/systemtrayicon.h>
 #include <ui/widget.h>
 int main(int argc, char *argv[])

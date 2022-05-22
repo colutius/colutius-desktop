@@ -64,20 +64,24 @@ class Message : public QObject
     QString getNick();                //获取发送者昵称
     QString getIp();                  //获取发送者IP
     int getNum() const;               //获取数字
-    QTime getTime();                  //获取消息发送时间
-    void setSession(QString session);//设置消息所在会话
+    int getTime();                    //获取消息发送时间
+    void setSession(QString session); //设置消息所在会话
 
   private:
-    void parseMsgSender(const QString &msg);          //解析消息发送者信息
+    void parseNick(const QString &msg);               //解析消息发送者昵称
     void parseMainMsg(const QString &msg, int index); //解析消息的主要信息
     void setTime();                                   //设置当前时间
-    Type _type = None;                                //消息类型
-    Sender _sender;                                   //消息发送者
-    QString _rawMsg;                                  //原始数据
-    QString _mainMsg;                                 //消息主体信息
-    QString _session;                                 //消息所在会话
-    QString _nick;                                    //消息发送者昵称
-    QString _ip;                                      //消息发送者ip
-    int _num;                                         //数字指令消息的数字
-    QTime _msgTime;                                   //消息发送/接收时间
+    /*from发送者的信息*/
+    QString _nick = ""; //消息发送者昵称
+    QString _ip = "";   //消息发送者ip
+    Sender _sender;     //消息发送者 Server,User,Owner
+    /*chat会话信息*/
+    QString _session = ""; //消息所在会话
+    Type _type = None;     //消息类型
+    /*通用信息*/
+    QString _rawMsg;  //原始数据
+    QString _mainMsg; //消息主体信息
+    int _msgTime;     //消息发送/接收时间 时间戳形式存储
+
+    int _num; //数字指令消息的数字
 };
