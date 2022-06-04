@@ -1,0 +1,42 @@
+# Maintainer: Ambition_echo <ambition_echo@outlook.com>
+
+pkgname=colutius-desktop
+pkgver=0.0.1
+pkgrel=1
+pkgdesc="A cross-platform, easy-to-use and beautiful IRC client"
+arch=('x86_64')
+url="https://github.com/colutius/colutius-desktop"
+license=('GPL3.0')
+
+depends=('qt6-base' 'qt6-svg')
+makedepends=('cmake' 'git' 'make')
+optdepends=('fcitx5-qt: fcitx5 support')
+
+source=("git+$url.git")
+sha256sums=("SKIP")
+
+prepare() {
+    cd $srcdir/$pkgname
+    git submodule update --init
+    cd ..&&mkdir build&&cd build
+    touch Colutius_log.txt
+    chmod 666 ./Colutius_log.txt
+}
+
+
+build() {
+    cd build
+    cmake ../$pkgname
+    make -j8
+}
+
+
+package() {
+    cd $pkgname
+    install -Dm644 ./resource/img/icon.svg $pkgdir/usr/share/icons/colutius.svg
+    install -Dm644 ./pkg/$pkgname.desktop $pkgdir/usr/share/applications/$pkgname.desktop
+    cd ../build
+    install -D ./$pkgname -t $pkgdir/opt/$pkgname
+    install -Dm644 ./libs/* $pkgdir/opt/$pkgname/libs
+    install -Dm666 ./Colutius_log.txt $pkgdir/opt/$pkgname/Colutius_log.txt
+}
