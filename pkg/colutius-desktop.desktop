@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=colutius-desktop
+Comment=Simple IRC client based on QT(Colutius) 基于Qt的IRC客户端
+Categories=network,Chat
+Exec=/opt/colutius-desktop/colutius-desktop
+Icon=/usr/share/icons/colutius.svg
+StartupNotify=false
+Terminal=false
