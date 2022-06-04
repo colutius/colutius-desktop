@@ -38,7 +38,7 @@ jobs:
         with:
             fetch-depth: 1
       - name: Publish AUR package
-        uses: KSXGitHub/github-actions-deploy-aur@<TAG>
+        uses: KSXGitHub/github-actions-deploy-aur@v2.2.5
         with:
           pkgname: colutius-desktop-git
           pkgbuild: pkg/PKGBUILD
