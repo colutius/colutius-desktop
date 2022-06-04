@@ -30,10 +30,21 @@ jobs:
           cd build
           cmake ..
           make
+  package:
+    name: package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Arch Linux PKGBUILD builder action
+        uses: 2m/arch-pkgbuild-builder@v1.18
+        with:
+          target: colutius-desktop/pkg/PKGBUILD
       # 上传artifact
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: colutius-desktop
-          path: /home/runner/work/colutius-desktop/colutius-desktop/build
+          path: /home/runner/work/colutius-desktop/colutius-desktop/colutius-desktop-0.0.1-1-x86_64.pkg.tar.zst
           if-no-files-found: error
