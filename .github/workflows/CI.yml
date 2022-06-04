@@ -30,21 +30,20 @@ jobs:
           cd build
           cmake ..
           make
-  package:
-    name: package
+  aur-publish:
+    needs: Build-Linux
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-      - name: Arch Linux PKGBUILD builder action
-        uses: 2m/arch-pkgbuild-builder@v1.18
+            fetch-depth: 1
+      - name: Publish AUR package
+        uses: KSXGitHub/github-actions-deploy-aur@<TAG>
         with:
-          target: colutius-desktop/pkg/PKGBUILD
-      # 上传artifact
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          path: /home/runner/work/colutius-desktop/colutius-desktop/colutius-desktop-0.0.1-1-x86_64.pkg.tar.zst
-          if-no-files-found: error
+          pkgname: colutius-desktop-git
+          pkgbuild: pkg/PKGBUILD
+          commit_username: ${{ secrets.AUR_USERNAME }}
+          commit_email: ${{ secrets.AUR_EMAIL }}
+          ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+          commit_message: Update AUR package
+          ssh_keyscan_types: rsa,dsa,ecdsa,ed25519
