@@ -1,9 +1,11 @@
 #pragma once
 
+#include <QDir>
 #include <QFile>
 #include <QObject>
 #include <QTextStream>
 #include <QTime>
+#include <core/log.h>
 
 class Log : public QObject
 {
