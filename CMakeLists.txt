@@ -40,6 +40,7 @@ add_executable(${PROJECT_NAME}
         src/UserInterface/config.cpp
         src/UserInterface/config.ui
         src/UserInterface/systemtrayicon.cpp
+        src/UserInterface/notice.cpp
         #core类
         ${ColutiusCore}
         src/ColutiusCore/log.cpp
